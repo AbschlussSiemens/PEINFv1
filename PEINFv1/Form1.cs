@@ -21,10 +21,9 @@ using System.Windows.Forms;
     //      TODO      //
     ////////////////////
         
-    // Links relativ machen Formload 
-
+    // Punkte
 #endregion
-//TODO RELATIVE LINK
+
 
 
 
@@ -45,11 +44,6 @@ namespace PEINFv1
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(Cursor.Position.X.ToString());
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -108,7 +102,6 @@ namespace PEINFv1
         }
 
         #endregion
-
 
     }
 }
