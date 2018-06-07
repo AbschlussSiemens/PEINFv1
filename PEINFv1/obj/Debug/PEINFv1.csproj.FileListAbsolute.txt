@@ -1,3 +1,11 @@
 c:\users\jakob.fender\documents\visual studio 2015\Projects\PEINFv1\PEINFv1\bin\Debug\PEINFv1.exe.config
 C:\Users\jakob.fender\Documents\Visual Studio 2015\Projects\PEINFv1 (Projekt)\PEINFv1\bin\Debug\PEINFv1.exe.config
 P:\Projekte\PEINFv1\PEINFv1\bin\Debug\PEINFv1.exe.config
+P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.csprojResolveAssemblyReference.cache
+P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.Form1.resources
+P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.Properties.Resources.resources
+P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.csproj.GenerateResource.Cache
+P:\Projekte\PEINFv1\PEINFv1\bin\Debug\PEINFv1.exe
+P:\Projekte\PEINFv1\PEINFv1\bin\Debug\PEINFv1.pdb
+P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.exe
+P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.pdb
