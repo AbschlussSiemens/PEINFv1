@@ -26,7 +26,6 @@ using System.Windows.Forms;
 
 
 
-
 namespace PEINFv1
 {
     public partial class Form1 : Form
@@ -62,12 +61,12 @@ namespace PEINFv1
 
         private void checkCursorPosition_Tick(object sender, EventArgs e)
         {
-            if (Cursor.Position.X - Location.X > 600)
+            if (Cursor.Position.X - Location.X > 600 && Cursor.Position.X > Size.Width)
             {
                 TurnEarth(false);
             }
 
-            if (Cursor.Position.X - Location.X < 200)
+            if (Cursor.Position.X - Location.X < 200)//&& Cursor.Position.X < Size.Width
             {
                 TurnEarth(true);
             }
