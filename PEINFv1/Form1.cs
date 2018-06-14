@@ -61,6 +61,8 @@ namespace PEINFv1
             }
 
             Point1.Image = Pointer;
+            this.Background.Image = new Bitmap("..\\..\\Assets\\Sonnst\\Point.png");
+
 
             Random rnd = new Random();
             currentFrame = rnd.Next(24);
@@ -100,9 +102,7 @@ namespace PEINFv1
 
             //Point 1
 
-             
-
-
+    
         }
 
         private void checkCursorPosition_Tick(object sender, EventArgs e)
@@ -118,6 +118,20 @@ namespace PEINFv1
             }
 
             TempTextbox.Text =   (Cursor.Position.X - this.Location.X).ToString() + "   " + (Cursor.Position.Y - this.Location.Y).ToString() + "   " + currentFrame.ToString();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    TurnEarth(true);
+                    break;
+
+                case Keys.Right:
+                    TurnEarth(false);
+                    break;
+            }
         }
 
         #endregion
@@ -145,15 +159,18 @@ namespace PEINFv1
                 currentFrame = 24;
             }
 
-            this.BackgroundImage = frames[currentFrame];
+            Background.Image = frames[currentFrame];
 
-            if (pointLocation[0, currentFrame, 0] == 0)
+            for (int i = 0; i < pointLocation.GetLength(0); i++)
             {
-                Point1.Visible = false;
-            }
-            else
-            {
-                Point1.Visible = true;
+                if (pointLocation[i, currentFrame, 0] == 0)
+                {
+                    Point1.Visible = false;
+                }
+                else
+                {
+                    Point1.Visible = true;
+                }
             }
 
             Point1.Location = new Point(pointLocation[0, currentFrame, 0] - 17 , pointLocation[0, currentFrame, 1] - 70 );
@@ -162,18 +179,6 @@ namespace PEINFv1
 
         #endregion
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Left:
-                    TurnEarth(true);
-                    break;
-
-                case Keys.Right:
-                    TurnEarth(false);
-                    break;
-            }
-        }
+        
     }
 }
