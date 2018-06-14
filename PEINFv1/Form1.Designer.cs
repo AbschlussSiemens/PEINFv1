@@ -33,7 +33,9 @@
             this.checkCursorPosition = new System.Windows.Forms.Timer(this.components);
             this.TempTextbox = new System.Windows.Forms.TextBox();
             this.Point1 = new System.Windows.Forms.PictureBox();
+            this.Background = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Point1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Background)).BeginInit();
             this.SuspendLayout();
             // 
             // checkCursorPosition
@@ -61,6 +63,14 @@
             this.Point1.TabIndex = 2;
             this.Point1.TabStop = false;
             // 
+            // Background
+            // 
+            this.Background.Location = new System.Drawing.Point(0, 0);
+            this.Background.Name = "Background";
+            this.Background.Size = new System.Drawing.Size(800, 600);
+            this.Background.TabIndex = 3;
+            this.Background.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -69,12 +79,14 @@
             this.ClientSize = new System.Drawing.Size(800, 598);
             this.Controls.Add(this.Point1);
             this.Controls.Add(this.TempTextbox);
+            this.Controls.Add(this.Background);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.Point1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Background)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,6 +96,7 @@
         private System.Windows.Forms.Timer checkCursorPosition;
         private System.Windows.Forms.TextBox TempTextbox;
         private System.Windows.Forms.PictureBox Point1;
+        private System.Windows.Forms.PictureBox Background;
     }
 }
 

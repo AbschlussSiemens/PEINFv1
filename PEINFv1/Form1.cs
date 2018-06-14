@@ -20,8 +20,6 @@ using System.Windows.Forms;
     //////////////////// 
     //      TODO      //
     ////////////////////
-        
-    // Punkte
 
     //Nur drehen, wenn die Erde angewählt
     
@@ -44,7 +42,7 @@ namespace PEINFv1
 
 
         //pointLocation[Nummer des Pointer, Frame, X = 0 oder Y = 1]
-        int[,,] pointLocation = new int[2,25, 2];
+        int[,,] pointLocation = new int[4,25, 2];
 
         #endregion
 
@@ -88,23 +86,28 @@ namespace PEINFv1
                 pointLocation[0, i, 1] = 290;
             }
 
-            pointLocation[0, 12, 0] = 26;
-            pointLocation[0, 13, 0] = 67;
-            pointLocation[0, 14, 0] = 132;
-            pointLocation[0, 15, 0] = 214;
-            pointLocation[0, 16, 0] = 311;
-            pointLocation[0, 17, 0] = 413;
-            pointLocation[0, 18, 0] = 517;
-            pointLocation[0, 19, 0] = 611;
+            pointLocation[0, 11, 0] = 23;
+            pointLocation[0, 12, 0] = 67;
+            pointLocation[0, 13, 0] = 132;
+            pointLocation[0, 14, 0] = 214;
+            pointLocation[0, 15, 0] = 311;
+            pointLocation[0, 16, 0] = 413;
+            pointLocation[0, 17, 0] = 517;
+            pointLocation[0, 18, 0] = 611;
+            pointLocation[0, 19, 0] = 692;
             pointLocation[0, 20, 0] = 755;
             pointLocation[0, 21, 0] = 792;
+
+            //Point 1
+
+             
 
 
         }
 
         private void checkCursorPosition_Tick(object sender, EventArgs e)
         {
-            /*if (Cursor.Position.X - Location.X > 600)//&& Cursor.Position.X > Size.Width
+            if (Cursor.Position.X - Location.X > 600)//&& Cursor.Position.X > Size.Width
             {
                 TurnEarth(false);
             }
@@ -112,7 +115,7 @@ namespace PEINFv1
             if (Cursor.Position.X - Location.X < 200)//&& Cursor.Position.X < Size.Width
             {
                 TurnEarth(true);
-            }*/
+            }
 
             TempTextbox.Text =   (Cursor.Position.X - this.Location.X).ToString() + "   " + (Cursor.Position.Y - this.Location.Y).ToString() + "   " + currentFrame.ToString();
         }
@@ -153,7 +156,7 @@ namespace PEINFv1
                 Point1.Visible = true;
             }
 
-            Point1.Location = new Point(pointLocation[0, currentFrame, 0] + 60 , pointLocation[0, currentFrame, 1] -60);
+            Point1.Location = new Point(pointLocation[0, currentFrame, 0] - 17 , pointLocation[0, currentFrame, 1] - 70 );
 
         }
 
