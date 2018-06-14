@@ -60,7 +60,7 @@ namespace PEINFv1
                 frames[i] = new Bitmap("..\\..\\Assets\\Erde\\frame (" + i + ").bmp"); 
             }
 
-            Point1.Image = Pointer;
+            Point00.Image = Pointer;
             this.Background.Image = new Bitmap("..\\..\\Assets\\Sonnst\\Point.png");
 
 
@@ -101,6 +101,9 @@ namespace PEINFv1
             pointLocation[0, 21, 0] = 792;
 
             //Point 1
+
+            
+
 
     
         }
@@ -159,21 +162,21 @@ namespace PEINFv1
                 currentFrame = 24;
             }
 
-            Background.Image = frames[currentFrame];
+            this.Background.Image = frames[currentFrame];
 
             for (int i = 0; i < pointLocation.GetLength(0); i++)
             {
                 if (pointLocation[i, currentFrame, 0] == 0)
                 {
-                    Point1.Visible = false;
+                    Point00.Visible = false;
                 }
                 else
                 {
-                    Point1.Visible = true;
+                    Point00.Visible = true;
                 }
             }
 
-            Point1.Location = new Point(pointLocation[0, currentFrame, 0] - 17 , pointLocation[0, currentFrame, 1] - 70 );
+            Point00.Location = new Point(pointLocation[0, currentFrame, 0] - 17 , pointLocation[0, currentFrame, 1] - 70 );
 
         }
 
