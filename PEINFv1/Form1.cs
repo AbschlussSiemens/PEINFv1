@@ -17,13 +17,13 @@ using System.Windows.Forms;
 
 #region TODO
 
-    //////////////////// 
-    //      TODO      //
-    ////////////////////
+//////////////////// 
+//      TODO      //
+////////////////////
 
-    //Nur drehen, wenn die Erde angewählt
-    
-     
+//Nur drehen, wenn die Erde angewählt
+
+
 #endregion
 
 
@@ -42,7 +42,7 @@ namespace PEINFv1
 
 
         //pointLocation[Nummer des Pointer, Frame, X = 0 oder Y = 1]
-        int[,,] pointLocation = new int[4,25, 2];
+        int[,,] pointLocation = new int[4, 25, 2];
 
         #endregion
 
@@ -51,17 +51,20 @@ namespace PEINFv1
         public Form1()
         {
             InitializeComponent();
+            Moon.Controls.Add(PointMoon);
+            PointMoon.Location = new Point(23, 5);
+            PointMoon.BackColor = Color.Transparent;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 1; i <= 24; i++)
             {
-                frames[i] = new Bitmap("..\\..\\Assets\\Erde\\frame (" + i + ").bmp"); 
+                frames[i] = new Bitmap("..\\..\\Assets\\Erde\\frame (" + i + ").bmp");
             }
 
             Point00.Image = Pointer;
-            this.Background.Image = new Bitmap("..\\..\\Assets\\Sonnst\\Point.png");
+            this.BackgroundPB.Image = new Bitmap("..\\..\\Assets\\Sonnst\\Point.png");
 
 
             Random rnd = new Random();
@@ -102,15 +105,29 @@ namespace PEINFv1
 
             //Point 1
 
-            
+            for (int i = 0; i < pointLocation.GetLength(1); i++)
+            {
+                pointLocation[1, i, 1] = 230;
+            }
+
+            pointLocation[1, 3, 0] = 51;
+            pointLocation[1, 4, 0] = 97;
+            pointLocation[1, 5, 0] = 160;
+            pointLocation[1, 6, 0] = 247;
+            pointLocation[1, 7, 0] = 341;
+            pointLocation[1, 8, 0] = 439;
+            pointLocation[1, 9, 0] = 535;
+            pointLocation[1, 10, 0] = 624;
+            pointLocation[1, 11, 0] = 697;
+            pointLocation[1, 12, 0] = 748;
+            pointLocation[1, 13, 0] = 778;
 
 
-    
         }
 
         private void checkCursorPosition_Tick(object sender, EventArgs e)
         {
-            if (Cursor.Position.X - Location.X > 600)//&& Cursor.Position.X > Size.Width
+           /* if (Cursor.Position.X - Location.X > 600)//&& Cursor.Position.X > Size.Width
             {
                 TurnEarth(false);
             }
@@ -119,8 +136,8 @@ namespace PEINFv1
             {
                 TurnEarth(true);
             }
-
-            TempTextbox.Text =   (Cursor.Position.X - this.Location.X).ToString() + "   " + (Cursor.Position.Y - this.Location.Y).ToString() + "   " + currentFrame.ToString();
+            */
+            TempTextbox.Text = (Cursor.Position.X - this.Location.X).ToString() + "   " + (Cursor.Position.Y - this.Location.Y).ToString() + "   " + currentFrame.ToString();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -162,26 +179,38 @@ namespace PEINFv1
                 currentFrame = 24;
             }
 
-            this.Background.Image = frames[currentFrame];
+            BackgroundPB.Image = frames[currentFrame];
+            this.BackgroundImage = frames[currentFrame];
 
-            for (int i = 0; i < pointLocation.GetLength(0); i++)
+            if (pointLocation[1, currentFrame, 0] == 0)
             {
-                if (pointLocation[i, currentFrame, 0] == 0)
-                {
-                    Point00.Visible = false;
-                }
-                else
-                {
-                    Point00.Visible = true;
-                }
+                Point01.Visible = false;
+            }
+            else
+            {
+                Point01.Visible = true;
             }
 
-            Point00.Location = new Point(pointLocation[0, currentFrame, 0] - 17 , pointLocation[0, currentFrame, 1] - 70 );
 
+            if (pointLocation[0, currentFrame, 0] == 0)
+            {
+                Point00.Visible = false;
+            }
+            else
+            {
+                Point00.Visible = true;
+            }
+
+            reLocate(Point00, pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
+            reLocate(Point01, pointLocation[1, currentFrame, 0], pointLocation[1, currentFrame, 1]);
+        }
+
+        private void reLocate(PictureBox PictureBox, int X, int Y)
+        {
+            PictureBox.Location = new Point(X - 17, Y - 70);
         }
 
         #endregion
 
-        
     }
 }

@@ -33,13 +33,15 @@
             this.checkCursorPosition = new System.Windows.Forms.Timer(this.components);
             this.TempTextbox = new System.Windows.Forms.TextBox();
             this.Point00 = new System.Windows.Forms.PictureBox();
-            this.Background = new System.Windows.Forms.PictureBox();
+            this.BackgroundPB = new System.Windows.Forms.PictureBox();
             this.PointMoon = new System.Windows.Forms.PictureBox();
             this.Point01 = new System.Windows.Forms.PictureBox();
+            this.Moon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Point00)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Background)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackgroundPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointMoon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Moon)).BeginInit();
             this.SuspendLayout();
             // 
             // checkCursorPosition
@@ -67,13 +69,13 @@
             this.Point00.TabIndex = 2;
             this.Point00.TabStop = false;
             // 
-            // Background
+            // BackgroundPB
             // 
-            this.Background.Location = new System.Drawing.Point(0, 0);
-            this.Background.Name = "Background";
-            this.Background.Size = new System.Drawing.Size(800, 600);
-            this.Background.TabIndex = 3;
-            this.Background.TabStop = false;
+            this.BackgroundPB.Location = new System.Drawing.Point(0, 0);
+            this.BackgroundPB.Name = "BackgroundPB";
+            this.BackgroundPB.Size = new System.Drawing.Size(800, 600);
+            this.BackgroundPB.TabIndex = 3;
+            this.BackgroundPB.TabStop = false;
             // 
             // PointMoon
             // 
@@ -97,6 +99,16 @@
             this.Point01.TabIndex = 5;
             this.Point01.TabStop = false;
             // 
+            // Moon
+            // 
+            this.Moon.BackColor = System.Drawing.Color.Transparent;
+            this.Moon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Moon.BackgroundImage")));
+            this.Moon.Location = new System.Drawing.Point(724, 23);
+            this.Moon.Name = "Moon";
+            this.Moon.Size = new System.Drawing.Size(64, 64);
+            this.Moon.TabIndex = 6;
+            this.Moon.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,20 +116,22 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 598);
+            this.Controls.Add(this.PointMoon);
+            this.Controls.Add(this.Moon);
             this.Controls.Add(this.Point00);
             this.Controls.Add(this.Point01);
-            this.Controls.Add(this.PointMoon);
             this.Controls.Add(this.TempTextbox);
-            this.Controls.Add(this.Background);
+            this.Controls.Add(this.BackgroundPB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.Point00)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Background)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackgroundPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointMoon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Moon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,9 +141,10 @@
         private System.Windows.Forms.Timer checkCursorPosition;
         private System.Windows.Forms.TextBox TempTextbox;
         private System.Windows.Forms.PictureBox Point00;
-        private System.Windows.Forms.PictureBox Background;
+        private System.Windows.Forms.PictureBox BackgroundPB;
         private System.Windows.Forms.PictureBox PointMoon;
         private System.Windows.Forms.PictureBox Point01;
+        private System.Windows.Forms.PictureBox Moon;
     }
 }
 
