@@ -25,7 +25,7 @@ using System.Windows.Forms;
 
 //Popup relativ
 
-//Stationen festlegen
+//Stationen festlegen WIP
 
 
 
@@ -56,7 +56,21 @@ namespace PEINFv1
         public PEINF()
         {
             InitializeComponent();
+
             Moon.Controls.Add(PointMoon);
+            BackgroundPB.Controls.Add(Moon);
+
+
+            Moon.Controls.Add(Point00);
+            Moon.Controls.Add(Point01);
+            Moon.Controls.Add(Point02);
+
+            BackgroundPB.Controls.Add(Point00);
+            BackgroundPB.Controls.Add(Point01);
+            BackgroundPB.Controls.Add(Point02);
+
+
+            //Pointer Moon
             PointMoon.Location = new Point(23, 5);
             PointMoon.BackColor = Color.Transparent;
         }
@@ -112,26 +126,42 @@ namespace PEINFv1
 
             for (int i = 0; i < pointLocation.GetLength(1); i++)
             {
-                pointLocation[1, i, 1] = 155;
+                pointLocation[1, i, 1] = 104;
             }
 
-            pointLocation[1, 22, 0] = 82;
-            pointLocation[1, 23, 0] = 112;
-            pointLocation[1, 24, 0] = 157;
-            pointLocation[1, 1, 0] = 213;
+            pointLocation[1, 17, 0] = 127;
+            pointLocation[1, 18, 0] = 155;
+            pointLocation[1, 19, 0] = 191;
+            pointLocation[1, 20, 0] = 236;
+            pointLocation[1, 21, 0] = 284;
+            pointLocation[1, 22, 0] = 336;
+            pointLocation[1, 23, 0] = 387;
+            pointLocation[1, 24, 0] = 430;
+            pointLocation[1, 1, 0] = 466;
+            pointLocation[1, 2, 0] = 491;
+
+            //Point 2
+
+            for (int i = 0; i < pointLocation.GetLength(1); i++)
+            {
+                pointLocation[1, i, 1] = 121;
+            }
+
+            pointLocation[1, 22, 0] = 107;
+            pointLocation[1, 23, 0] = 135;
+            pointLocation[1, 24, 0] = 174;
+            pointLocation[1, 1, 0] = 223;
             pointLocation[1, 2, 0] = 277;
-            pointLocation[1, 3, 0] = 339;
-            pointLocation[1, 4, 0] = 401;
-            pointLocation[1, 5, 0] = 458;
-            pointLocation[1, 6, 0] = 500;
-            pointLocation[1, 7, 0] = 534;
+            pointLocation[1, 3, 0] = 335;
+            pointLocation[1, 4, 0] = 389;
+            pointLocation[1, 5, 0] = 439;
+            pointLocation[1, 6, 0] = 479;
+            pointLocation[1, 7, 0] = 509;
 
             #endregion
 
             TurnEarth(true);
             checkCursorPosition.Start();
-
-
             
         }
 
@@ -204,6 +234,7 @@ namespace PEINFv1
 
             reLocate(Point00, pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
             reLocate(Point01, pointLocation[1, currentFrame, 0], pointLocation[1, currentFrame, 1]);
+            reLocate(Point02, pointLocation[2, currentFrame, 0], pointLocation[2, currentFrame, 1]);
         }
 
         private void reLocate(PictureBox PictureBox, int X, int Y)

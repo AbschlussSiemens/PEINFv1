@@ -40,12 +40,14 @@
             this.PopupBackground = new System.Windows.Forms.PictureBox();
             this.PopupTitle = new System.Windows.Forms.Label();
             this.PopupText = new System.Windows.Forms.Label();
+            this.Point02 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Point00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BackgroundPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointMoon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Moon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PopupBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point02)).BeginInit();
             this.SuspendLayout();
             // 
             // checkCursorPosition
@@ -150,6 +152,17 @@
             this.PopupText.Text = "Text";
             this.PopupText.Visible = false;
             // 
+            // Point02
+            // 
+            this.Point02.BackColor = System.Drawing.Color.Transparent;
+            this.Point02.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point02.BackgroundImage")));
+            this.Point02.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Point02.Location = new System.Drawing.Point(64, 12);
+            this.Point02.Name = "Point02";
+            this.Point02.Size = new System.Drawing.Size(20, 40);
+            this.Point02.TabIndex = 10;
+            this.Point02.TabStop = false;
+            // 
             // PEINF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +171,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(600, 598);
+            this.Controls.Add(this.Point02);
             this.Controls.Add(this.PopupText);
             this.Controls.Add(this.PopupTitle);
             this.Controls.Add(this.PopupBackground);
@@ -179,6 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Point01)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Moon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PopupBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point02)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,6 +210,7 @@
         private System.Windows.Forms.PictureBox PopupBackground;
         private System.Windows.Forms.Label PopupTitle;
         private System.Windows.Forms.Label PopupText;
+        private System.Windows.Forms.PictureBox Point02;
     }
 }
 
