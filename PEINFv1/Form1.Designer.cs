@@ -56,7 +56,7 @@
             // TempTextbox
             // 
             this.TempTextbox.Enabled = false;
-            this.TempTextbox.Location = new System.Drawing.Point(700, 580);
+            this.TempTextbox.Location = new System.Drawing.Point(0, 580);
             this.TempTextbox.Name = "TempTextbox";
             this.TempTextbox.ReadOnly = true;
             this.TempTextbox.Size = new System.Drawing.Size(100, 20);
@@ -76,9 +76,10 @@
             // 
             // BackgroundPB
             // 
+            this.BackgroundPB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BackgroundPB.BackgroundImage")));
             this.BackgroundPB.Location = new System.Drawing.Point(0, 0);
             this.BackgroundPB.Name = "BackgroundPB";
-            this.BackgroundPB.Size = new System.Drawing.Size(600, 600);
+            this.BackgroundPB.Size = new System.Drawing.Size(599, 600);
             this.BackgroundPB.TabIndex = 3;
             this.BackgroundPB.TabStop = false;
             // 

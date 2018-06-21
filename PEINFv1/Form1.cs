@@ -92,20 +92,20 @@ namespace PEINFv1
 
             for (int i = 0; i < pointLocation.GetLength(1); i++)
             {
-                pointLocation[0, i, 1] = 290;
+                pointLocation[0, i, 1] = 210;
             }
 
-            pointLocation[0, 11, 0] = 21;
-            pointLocation[0, 12, 0] = 50;
-            pointLocation[0, 13, 0] = 98;
-            pointLocation[0, 14, 0] = 162;
-            pointLocation[0, 15, 0] = 233;
-            pointLocation[0, 16, 0] = 312;
-            pointLocation[0, 17, 0] = 390;
-            pointLocation[0, 18, 0] = 461;
-            pointLocation[0, 19, 0] = 521;
-            pointLocation[0, 20, 0] = 570;
-            pointLocation[0, 21, 0] = 598;
+            pointLocation[0, 12, 0] = 30;
+            pointLocation[0, 13, 0] = 54;
+            pointLocation[0, 14, 0] = 86;
+            pointLocation[0, 15, 0] = 135;
+            pointLocation[0, 16, 0] = 196;
+            pointLocation[0, 17, 0] = 261;
+            pointLocation[0, 18, 0] = 333;
+            pointLocation[0, 19, 0] = 402;
+            pointLocation[0, 20, 0] = 465;
+            pointLocation[0, 21, 0] = 516;
+            pointLocation[0, 22, 0] = 556;
 
 
             //Point 1
@@ -136,7 +136,7 @@ namespace PEINFv1
         }
 
         private void checkCursorPosition_Tick(object sender, EventArgs e)
-        {
+        {/*
             if (Cursor.Position.X - Location.X > 550 && ClientRectangle.Contains(PointToClient(Control.MousePosition)))
             {
                 TurnEarth(false);
@@ -145,7 +145,7 @@ namespace PEINFv1
             if (Cursor.Position.X - Location.X < 50 && ClientRectangle.Contains(PointToClient(Control.MousePosition)))
             {
                 TurnEarth(true);
-            }
+            }*/
             
             TempTextbox.Text = (Cursor.Position.X - this.Location.X).ToString() + "   " + (Cursor.Position.Y - this.Location.Y).ToString() + "   " + currentFrame.ToString();
         }
