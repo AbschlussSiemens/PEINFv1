@@ -41,6 +41,9 @@
             this.PopupTitle = new System.Windows.Forms.Label();
             this.PopupText = new System.Windows.Forms.Label();
             this.Point02 = new System.Windows.Forms.PictureBox();
+            this.Point03 = new System.Windows.Forms.PictureBox();
+            this.ISS = new System.Windows.Forms.PictureBox();
+            this.PointISS = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Point00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BackgroundPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointMoon)).BeginInit();
@@ -48,6 +51,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Moon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PopupBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point02)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ISS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointISS)).BeginInit();
             this.SuspendLayout();
             // 
             // checkCursorPosition
@@ -66,12 +72,12 @@
             // 
             // Point00
             // 
-            this.Point00.BackColor = System.Drawing.Color.Transparent;
+            this.Point00.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Point00.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point00.BackgroundImage")));
-            this.Point00.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Point00.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Point00.Location = new System.Drawing.Point(12, 12);
             this.Point00.Name = "Point00";
-            this.Point00.Size = new System.Drawing.Size(20, 40);
+            this.Point00.Size = new System.Drawing.Size(15, 30);
             this.Point00.TabIndex = 2;
             this.Point00.TabStop = false;
             this.Point00.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Point00_MouseClick);
@@ -89,23 +95,25 @@
             // 
             this.PointMoon.BackColor = System.Drawing.Color.Transparent;
             this.PointMoon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PointMoon.BackgroundImage")));
-            this.PointMoon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PointMoon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PointMoon.Location = new System.Drawing.Point(639, 1);
             this.PointMoon.Name = "PointMoon";
-            this.PointMoon.Size = new System.Drawing.Size(20, 40);
+            this.PointMoon.Size = new System.Drawing.Size(15, 30);
             this.PointMoon.TabIndex = 4;
             this.PointMoon.TabStop = false;
+            this.PointMoon.Click += new System.EventHandler(this.PointMoon_Click);
             // 
             // Point01
             // 
-            this.Point01.BackColor = System.Drawing.Color.Transparent;
+            this.Point01.BackColor = System.Drawing.Color.Silver;
             this.Point01.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point01.BackgroundImage")));
-            this.Point01.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Point01.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Point01.Location = new System.Drawing.Point(38, 12);
             this.Point01.Name = "Point01";
-            this.Point01.Size = new System.Drawing.Size(20, 40);
+            this.Point01.Size = new System.Drawing.Size(15, 30);
             this.Point01.TabIndex = 5;
             this.Point01.TabStop = false;
+            this.Point01.Click += new System.EventHandler(this.Point01_Click);
             // 
             // Moon
             // 
@@ -154,14 +162,50 @@
             // 
             // Point02
             // 
-            this.Point02.BackColor = System.Drawing.Color.Transparent;
+            this.Point02.BackColor = System.Drawing.Color.Lime;
             this.Point02.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point02.BackgroundImage")));
-            this.Point02.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Point02.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Point02.Location = new System.Drawing.Point(64, 12);
             this.Point02.Name = "Point02";
-            this.Point02.Size = new System.Drawing.Size(20, 40);
+            this.Point02.Size = new System.Drawing.Size(15, 30);
             this.Point02.TabIndex = 10;
             this.Point02.TabStop = false;
+            this.Point02.Click += new System.EventHandler(this.Point02_Click);
+            // 
+            // Point03
+            // 
+            this.Point03.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Point03.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point03.BackgroundImage")));
+            this.Point03.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Point03.Location = new System.Drawing.Point(90, 12);
+            this.Point03.Name = "Point03";
+            this.Point03.Size = new System.Drawing.Size(15, 30);
+            this.Point03.TabIndex = 11;
+            this.Point03.TabStop = false;
+            this.Point03.Click += new System.EventHandler(this.Point03_Click);
+            // 
+            // ISS
+            // 
+            this.ISS.BackColor = System.Drawing.Color.Transparent;
+            this.ISS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ISS.BackgroundImage")));
+            this.ISS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ISS.Location = new System.Drawing.Point(601, 122);
+            this.ISS.Name = "ISS";
+            this.ISS.Size = new System.Drawing.Size(32, 32);
+            this.ISS.TabIndex = 12;
+            this.ISS.TabStop = false;
+            // 
+            // PointISS
+            // 
+            this.PointISS.BackColor = System.Drawing.Color.Transparent;
+            this.PointISS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PointISS.BackgroundImage")));
+            this.PointISS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PointISS.Location = new System.Drawing.Point(609, 92);
+            this.PointISS.Name = "PointISS";
+            this.PointISS.Size = new System.Drawing.Size(15, 30);
+            this.PointISS.TabIndex = 13;
+            this.PointISS.TabStop = false;
+            this.PointISS.Click += new System.EventHandler(this.PointISS_Click);
             // 
             // PEINF
             // 
@@ -171,6 +215,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(984, 598);
+            this.Controls.Add(this.PointISS);
+            this.Controls.Add(this.ISS);
+            this.Controls.Add(this.Point03);
             this.Controls.Add(this.Point02);
             this.Controls.Add(this.PopupText);
             this.Controls.Add(this.PopupTitle);
@@ -194,6 +241,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Moon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PopupBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point02)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ISS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointISS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +261,9 @@
         private System.Windows.Forms.Label PopupTitle;
         private System.Windows.Forms.Label PopupText;
         private System.Windows.Forms.PictureBox Point02;
+        private System.Windows.Forms.PictureBox Point03;
+        private System.Windows.Forms.PictureBox ISS;
+        private System.Windows.Forms.PictureBox PointISS;
     }
 }
 

@@ -59,18 +59,17 @@ namespace PEINFv1
 
             Moon.Controls.Add(PointMoon);
 
+
             BackgroundPB.Controls.Add(Point00);
             BackgroundPB.Controls.Add(Point01);
             BackgroundPB.Controls.Add(Point02);
 
 
 
-
-
-
-            //Pointer Moon
+            //Point Moon
             PointMoon.Location = new Point(23, 5);
             PointMoon.BackColor = Color.Transparent;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -139,7 +138,6 @@ namespace PEINFv1
             pointLocation[1, 2, 0] = 491;
 
             //Point 2
-
             for (int i = 0; i < pointLocation.GetLength(1); i++)
             {
                 pointLocation[2, i, 1] = 121;
@@ -156,11 +154,28 @@ namespace PEINFv1
             pointLocation[2, 6, 0] = 479;
             pointLocation[2, 7, 0] = 509;
 
+            //Point03
+            for (int i = 0; i < pointLocation.GetLength(1); i++)
+            {
+                pointLocation[3, i, 1] = 160;
+            }
+            
+            pointLocation[3, 24, 0] = 70;
+            pointLocation[3, 1, 0] = 106;
+            pointLocation[3, 2, 0] = 149;
+            pointLocation[3, 3, 0] = 199;
+            pointLocation[3, 4, 0] = 267;
+            pointLocation[3, 5, 0] = 327;
+            pointLocation[3, 6, 0] = 392;
+            pointLocation[3, 7, 0] = 456;
+            pointLocation[3, 8, 0] = 504;
+            pointLocation[3, 9, 0] = 541;
+
             #endregion
 
             TurnEarth(true);
             checkCursorPosition.Start();
-            
+
         }
 
         private void checkCursorPosition_Tick(object sender, EventArgs e)
@@ -174,7 +189,7 @@ namespace PEINFv1
             {
                 TurnEarth(true);
             }*/
-            
+
             TempTextbox.Text = (Cursor.Position.X - this.Location.X).ToString() + "   " + (Cursor.Position.Y - this.Location.Y).ToString() + "   " + currentFrame.ToString();
         }
 
@@ -233,15 +248,27 @@ namespace PEINFv1
             reLocate(Point00, pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
             reLocate(Point01, pointLocation[1, currentFrame, 0], pointLocation[1, currentFrame, 1]);
             reLocate(Point02, pointLocation[2, currentFrame, 0], pointLocation[2, currentFrame, 1]);
+            reLocate(Point03, pointLocation[3, currentFrame, 0], pointLocation[3, currentFrame, 1]);
         }
 
         private void reLocate(PictureBox PictureBox, int X, int Y)
         {
-            PictureBox.Location = new Point(X - 17, Y - 70);
+            PictureBox.Location = new Point(X - 17, Y - 60);
         }
 
         private void Visibility()
         {
+            //Point00
+            if (pointLocation[0, currentFrame, 0] == 0)
+            {
+                Point00.Visible = false;
+            }
+            else
+            {
+                Point00.Visible = true;
+            }
+
+            //Point01
             if (pointLocation[1, currentFrame, 0] == 0)
             {
                 Point01.Visible = false;
@@ -251,14 +278,24 @@ namespace PEINFv1
                 Point01.Visible = true;
             }
 
-
-            if (pointLocation[0, currentFrame, 0] == 0)
+            //Point02
+            if (pointLocation[2, currentFrame, 0] == 0)
             {
-                Point00.Visible = false;
+                Point02.Visible = false;
             }
             else
             {
-                Point00.Visible = true;
+                Point02.Visible = true;
+            }
+
+            //Point03
+            if (pointLocation[3, currentFrame, 0] == 0)
+            {
+                Point03.Visible = false;
+            }
+            else
+            {
+                Point03.Visible = true;
             }
         }
 
@@ -270,8 +307,8 @@ namespace PEINFv1
             PopupText.Text = text;
             PopupTitle.Text = title;
 
-            PopupBackground.Location = new Point(X,Y);
-            PopupTitle.Location = new Point(X + 15,Y + 10);
+            PopupBackground.Location = new Point(X, Y);
+            PopupTitle.Location = new Point(X + 15, Y + 10);
             PopupText.Location = new Point(X + 15, Y + 40);
 
             PopupText.Visible = true;
@@ -288,5 +325,29 @@ namespace PEINFv1
 
         #endregion
 
+        private void Point01_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Point02_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Point03_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PointISS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PointMoon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
