@@ -58,16 +58,14 @@ namespace PEINFv1
             InitializeComponent();
 
             Moon.Controls.Add(PointMoon);
-            BackgroundPB.Controls.Add(Moon);
-
-
-            Moon.Controls.Add(Point00);
-            Moon.Controls.Add(Point01);
-            Moon.Controls.Add(Point02);
 
             BackgroundPB.Controls.Add(Point00);
             BackgroundPB.Controls.Add(Point01);
             BackgroundPB.Controls.Add(Point02);
+
+
+
+
 
 
             //Pointer Moon
@@ -144,19 +142,19 @@ namespace PEINFv1
 
             for (int i = 0; i < pointLocation.GetLength(1); i++)
             {
-                pointLocation[1, i, 1] = 121;
+                pointLocation[2, i, 1] = 121;
             }
 
-            pointLocation[1, 22, 0] = 107;
-            pointLocation[1, 23, 0] = 135;
-            pointLocation[1, 24, 0] = 174;
-            pointLocation[1, 1, 0] = 223;
-            pointLocation[1, 2, 0] = 277;
-            pointLocation[1, 3, 0] = 335;
-            pointLocation[1, 4, 0] = 389;
-            pointLocation[1, 5, 0] = 439;
-            pointLocation[1, 6, 0] = 479;
-            pointLocation[1, 7, 0] = 509;
+            pointLocation[2, 22, 0] = 107;
+            pointLocation[2, 23, 0] = 135;
+            pointLocation[2, 24, 0] = 174;
+            pointLocation[2, 1, 0] = 223;
+            pointLocation[2, 2, 0] = 277;
+            pointLocation[2, 3, 0] = 335;
+            pointLocation[2, 4, 0] = 389;
+            pointLocation[2, 5, 0] = 439;
+            pointLocation[2, 6, 0] = 479;
+            pointLocation[2, 7, 0] = 509;
 
             #endregion
 
@@ -167,7 +165,7 @@ namespace PEINFv1
 
         private void checkCursorPosition_Tick(object sender, EventArgs e)
         {/*
-            if (Cursor.Position.X - Location.X > 550 && ClientRectangle.Contains(PointToClient(Control.MousePosition)))
+            if (Cursor.Position.X - Location.X > 950 && ClientRectangle.Contains(PointToClient(Control.MousePosition)))
             {
                 TurnEarth(false);
             }
@@ -185,11 +183,11 @@ namespace PEINFv1
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    TurnEarth(true);
+                    TurnEarth(false);
                     break;
 
                 case Keys.Right:
-                    TurnEarth(false);
+                    TurnEarth(true);
                     break;
             }
         }

@@ -90,7 +90,7 @@
             this.PointMoon.BackColor = System.Drawing.Color.Transparent;
             this.PointMoon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PointMoon.BackgroundImage")));
             this.PointMoon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PointMoon.Location = new System.Drawing.Point(529, 1);
+            this.PointMoon.Location = new System.Drawing.Point(639, 1);
             this.PointMoon.Name = "PointMoon";
             this.PointMoon.Size = new System.Drawing.Size(20, 40);
             this.PointMoon.TabIndex = 4;
@@ -111,7 +111,7 @@
             // 
             this.Moon.BackColor = System.Drawing.Color.Transparent;
             this.Moon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Moon.BackgroundImage")));
-            this.Moon.Location = new System.Drawing.Point(495, 12);
+            this.Moon.Location = new System.Drawing.Point(605, 12);
             this.Moon.Name = "Moon";
             this.Moon.Size = new System.Drawing.Size(64, 64);
             this.Moon.TabIndex = 6;
@@ -120,9 +120,9 @@
             // PopupBackground
             // 
             this.PopupBackground.BackColor = System.Drawing.Color.White;
-            this.PopupBackground.Location = new System.Drawing.Point(284, 231);
+            this.PopupBackground.Location = new System.Drawing.Point(639, 82);
             this.PopupBackground.Name = "PopupBackground";
-            this.PopupBackground.Size = new System.Drawing.Size(328, 276);
+            this.PopupBackground.Size = new System.Drawing.Size(328, 504);
             this.PopupBackground.TabIndex = 7;
             this.PopupBackground.TabStop = false;
             this.PopupBackground.Visible = false;
@@ -133,7 +133,7 @@
             this.PopupTitle.BackColor = System.Drawing.Color.White;
             this.PopupTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PopupTitle.ForeColor = System.Drawing.Color.Black;
-            this.PopupTitle.Location = new System.Drawing.Point(294, 240);
+            this.PopupTitle.Location = new System.Drawing.Point(649, 101);
             this.PopupTitle.Name = "PopupTitle";
             this.PopupTitle.Size = new System.Drawing.Size(53, 25);
             this.PopupTitle.TabIndex = 8;
@@ -145,7 +145,7 @@
             this.PopupText.AutoSize = true;
             this.PopupText.BackColor = System.Drawing.Color.White;
             this.PopupText.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PopupText.Location = new System.Drawing.Point(299, 278);
+            this.PopupText.Location = new System.Drawing.Point(654, 139);
             this.PopupText.Name = "PopupText";
             this.PopupText.Size = new System.Drawing.Size(28, 15);
             this.PopupText.TabIndex = 9;
@@ -170,7 +170,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(600, 598);
+            this.ClientSize = new System.Drawing.Size(984, 598);
             this.Controls.Add(this.Point02);
             this.Controls.Add(this.PopupText);
             this.Controls.Add(this.PopupTitle);
