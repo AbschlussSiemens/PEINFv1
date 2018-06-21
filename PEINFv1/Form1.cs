@@ -25,7 +25,7 @@ using System.Windows.Forms;
 
 //Popup relativ
 
-//Stationen festlegen WIP
+//Stationen festlegen 
 
 
 
@@ -204,13 +204,46 @@ namespace PEINFv1
                 case Keys.Right:
                     TurnEarth(true);
                     break;
+
+                case Keys.Left:
+                    ClosePopup();
+                    break;
             }
         }
 
-        private void Point00_MouseClick(object sender, MouseEventArgs e)
+        #region PointXX_Klick
+
+        private void Point00_Click(object sender, MouseEventArgs e)
         {
-            MakePopup("Ich Titel", "Ich text", pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
+            MakePopup("Dubai", "Ich text", pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
         }
+
+        private void Point01_Click(object sender, EventArgs e)
+        {
+            MakePopup("Normandie", "Ich text", pointLocation[1, currentFrame, 0], pointLocation[1, currentFrame, 1]);
+        }
+
+        private void Point02_Click(object sender, EventArgs e)
+        {
+            MakePopup("Toronto", "Ich text", pointLocation[2, currentFrame, 0], pointLocation[2, currentFrame, 1]);
+        }
+
+        private void Point03_Click(object sender, EventArgs e)
+        {
+            MakePopup("Large Binocular Telescope", "Ich text", pointLocation[3, currentFrame, 0], pointLocation[3, currentFrame, 1]);
+        }
+
+        private void PointISS_Click(object sender, EventArgs e)
+        {
+           // MakePopup("Ich Titel", "Ich text", pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
+        }
+
+        private void PointMoon_Click(object sender, EventArgs e)
+        {
+           // MakePopup("Ich Titel", "Ich text", pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
+        }
+
+        #endregion
 
         #endregion
 
@@ -308,7 +341,7 @@ namespace PEINFv1
             PopupTitle.Text = title;
 
             PopupBackground.Location = new Point(X, Y);
-            PopupTitle.Location = new Point(X + 15, Y + 10);
+            PopupTitle.Location = new Point(X + 10, Y + 10);
             PopupText.Location = new Point(X + 15, Y + 40);
 
             PopupText.Visible = true;
@@ -323,31 +356,9 @@ namespace PEINFv1
             PopupText.Visible = false;
         }
 
+
         #endregion
 
-        private void Point01_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void Point02_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Point03_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PointISS_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PointMoon_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

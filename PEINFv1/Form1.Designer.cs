@@ -80,7 +80,7 @@
             this.Point00.Size = new System.Drawing.Size(15, 30);
             this.Point00.TabIndex = 2;
             this.Point00.TabStop = false;
-            this.Point00.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Point00_MouseClick);
+            this.Point00.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Point00_Click);
             // 
             // BackgroundPB
             // 
@@ -128,9 +128,9 @@
             // PopupBackground
             // 
             this.PopupBackground.BackColor = System.Drawing.Color.White;
-            this.PopupBackground.Location = new System.Drawing.Point(639, 82);
+            this.PopupBackground.Location = new System.Drawing.Point(644, 82);
             this.PopupBackground.Name = "PopupBackground";
-            this.PopupBackground.Size = new System.Drawing.Size(328, 504);
+            this.PopupBackground.Size = new System.Drawing.Size(328, 427);
             this.PopupBackground.TabIndex = 7;
             this.PopupBackground.TabStop = false;
             this.PopupBackground.Visible = false;
@@ -153,7 +153,7 @@
             this.PopupText.AutoSize = true;
             this.PopupText.BackColor = System.Drawing.Color.White;
             this.PopupText.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PopupText.Location = new System.Drawing.Point(654, 139);
+            this.PopupText.Location = new System.Drawing.Point(658, 139);
             this.PopupText.Name = "PopupText";
             this.PopupText.Size = new System.Drawing.Size(28, 15);
             this.PopupText.TabIndex = 9;
@@ -215,13 +215,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(984, 598);
+            this.Controls.Add(this.PopupText);
+            this.Controls.Add(this.PopupTitle);
+            this.Controls.Add(this.PopupBackground);
             this.Controls.Add(this.PointISS);
             this.Controls.Add(this.ISS);
             this.Controls.Add(this.Point03);
             this.Controls.Add(this.Point02);
-            this.Controls.Add(this.PopupText);
-            this.Controls.Add(this.PopupTitle);
-            this.Controls.Add(this.PopupBackground);
             this.Controls.Add(this.PointMoon);
             this.Controls.Add(this.Moon);
             this.Controls.Add(this.Point00);
