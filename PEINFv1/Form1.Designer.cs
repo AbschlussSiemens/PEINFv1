@@ -44,6 +44,10 @@
             this.Point03 = new System.Windows.Forms.PictureBox();
             this.ISS = new System.Windows.Forms.PictureBox();
             this.PointISS = new System.Windows.Forms.PictureBox();
+            this.Point06 = new System.Windows.Forms.PictureBox();
+            this.Point05 = new System.Windows.Forms.PictureBox();
+            this.Point04 = new System.Windows.Forms.PictureBox();
+            this.PopupCloseButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Point00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BackgroundPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointMoon)).BeginInit();
@@ -54,6 +58,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Point03)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointISS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point06)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point05)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point04)).BeginInit();
             this.SuspendLayout();
             // 
             // checkCursorPosition
@@ -72,7 +79,7 @@
             // 
             // Point00
             // 
-            this.Point00.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Point00.BackColor = System.Drawing.Color.Transparent;
             this.Point00.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point00.BackgroundImage")));
             this.Point00.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Point00.Location = new System.Drawing.Point(12, 12);
@@ -96,7 +103,7 @@
             this.PointMoon.BackColor = System.Drawing.Color.Transparent;
             this.PointMoon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PointMoon.BackgroundImage")));
             this.PointMoon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PointMoon.Location = new System.Drawing.Point(639, 1);
+            this.PointMoon.Location = new System.Drawing.Point(613, 1);
             this.PointMoon.Name = "PointMoon";
             this.PointMoon.Size = new System.Drawing.Size(15, 30);
             this.PointMoon.TabIndex = 4;
@@ -105,10 +112,10 @@
             // 
             // Point01
             // 
-            this.Point01.BackColor = System.Drawing.Color.Silver;
+            this.Point01.BackColor = System.Drawing.Color.Transparent;
             this.Point01.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point01.BackgroundImage")));
             this.Point01.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Point01.Location = new System.Drawing.Point(38, 12);
+            this.Point01.Location = new System.Drawing.Point(33, 12);
             this.Point01.Name = "Point01";
             this.Point01.Size = new System.Drawing.Size(15, 30);
             this.Point01.TabIndex = 5;
@@ -119,7 +126,7 @@
             // 
             this.Moon.BackColor = System.Drawing.Color.Transparent;
             this.Moon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Moon.BackgroundImage")));
-            this.Moon.Location = new System.Drawing.Point(605, 12);
+            this.Moon.Location = new System.Drawing.Point(579, 12);
             this.Moon.Name = "Moon";
             this.Moon.Size = new System.Drawing.Size(64, 64);
             this.Moon.TabIndex = 6;
@@ -162,10 +169,10 @@
             // 
             // Point02
             // 
-            this.Point02.BackColor = System.Drawing.Color.Lime;
+            this.Point02.BackColor = System.Drawing.Color.Transparent;
             this.Point02.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point02.BackgroundImage")));
             this.Point02.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Point02.Location = new System.Drawing.Point(64, 12);
+            this.Point02.Location = new System.Drawing.Point(54, 12);
             this.Point02.Name = "Point02";
             this.Point02.Size = new System.Drawing.Size(15, 30);
             this.Point02.TabIndex = 10;
@@ -174,10 +181,10 @@
             // 
             // Point03
             // 
-            this.Point03.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Point03.BackColor = System.Drawing.Color.Transparent;
             this.Point03.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point03.BackgroundImage")));
             this.Point03.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Point03.Location = new System.Drawing.Point(90, 12);
+            this.Point03.Location = new System.Drawing.Point(75, 12);
             this.Point03.Name = "Point03";
             this.Point03.Size = new System.Drawing.Size(15, 30);
             this.Point03.TabIndex = 11;
@@ -207,14 +214,75 @@
             this.PointISS.TabStop = false;
             this.PointISS.Click += new System.EventHandler(this.PointISS_Click);
             // 
+            // Point06
+            // 
+            this.Point06.BackColor = System.Drawing.Color.Transparent;
+            this.Point06.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point06.BackgroundImage")));
+            this.Point06.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Point06.Location = new System.Drawing.Point(138, 12);
+            this.Point06.Name = "Point06";
+            this.Point06.Size = new System.Drawing.Size(15, 30);
+            this.Point06.TabIndex = 14;
+            this.Point06.TabStop = false;
+            this.Point06.Click += new System.EventHandler(this.Point06_Click);
+            // 
+            // Point05
+            // 
+            this.Point05.BackColor = System.Drawing.Color.Transparent;
+            this.Point05.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point05.BackgroundImage")));
+            this.Point05.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Point05.Location = new System.Drawing.Point(117, 12);
+            this.Point05.Name = "Point05";
+            this.Point05.Size = new System.Drawing.Size(15, 30);
+            this.Point05.TabIndex = 15;
+            this.Point05.TabStop = false;
+            this.Point05.Click += new System.EventHandler(this.Point05_Click);
+            // 
+            // Point04
+            // 
+            this.Point04.BackColor = System.Drawing.Color.Transparent;
+            this.Point04.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Point04.BackgroundImage")));
+            this.Point04.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Point04.Location = new System.Drawing.Point(96, 12);
+            this.Point04.Name = "Point04";
+            this.Point04.Size = new System.Drawing.Size(15, 30);
+            this.Point04.TabIndex = 16;
+            this.Point04.TabStop = false;
+            this.Point04.Click += new System.EventHandler(this.Point04_Click);
+            // 
+            // PopupCloseButton
+            // 
+            this.PopupCloseButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PopupCloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PopupCloseButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.PopupCloseButton.FlatAppearance.BorderSize = 2;
+            this.PopupCloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.PopupCloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.PopupCloseButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PopupCloseButton.Location = new System.Drawing.Point(619, 92);
+            this.PopupCloseButton.Name = "PopupCloseButton";
+            this.PopupCloseButton.Size = new System.Drawing.Size(24, 23);
+            this.PopupCloseButton.TabIndex = 17;
+            this.PopupCloseButton.Text = "X";
+            this.PopupCloseButton.UseVisualStyleBackColor = false;
+            this.PopupCloseButton.Visible = false;
+            this.PopupCloseButton.Click += new System.EventHandler(this.PopupCloseButton_Click);
+            this.PopupCloseButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            // 
             // PEINF
             // 
+            this.AcceptButton = this.PopupCloseButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CancelButton = this.PopupCloseButton;
             this.ClientSize = new System.Drawing.Size(681, 598);
+            this.Controls.Add(this.PopupCloseButton);
+            this.Controls.Add(this.Point04);
+            this.Controls.Add(this.Point05);
+            this.Controls.Add(this.Point06);
             this.Controls.Add(this.PopupText);
             this.Controls.Add(this.PopupTitle);
             this.Controls.Add(this.PopupBackground);
@@ -244,6 +312,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Point03)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ISS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointISS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point06)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point05)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Point04)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +335,10 @@
         private System.Windows.Forms.PictureBox Point03;
         private System.Windows.Forms.PictureBox ISS;
         private System.Windows.Forms.PictureBox PointISS;
+        private System.Windows.Forms.PictureBox Point06;
+        private System.Windows.Forms.PictureBox Point05;
+        private System.Windows.Forms.PictureBox Point04;
+        private System.Windows.Forms.Button PopupCloseButton;
     }
 }
 
