@@ -23,11 +23,7 @@ using System.Windows.Forms;
 
 //Text und Titel für Stationen
 
-//Popup relativ
-
 //Stationen festlegen 
-
-
 
 #endregion
 
@@ -205,9 +201,9 @@ namespace PEINFv1
                     TurnEarth(true);
                     break;
 
-                case Keys.Left:
+               /* case Keys.Left:
                     ClosePopup();
-                    break;
+                    break;*/
             }
         }
 
@@ -235,12 +231,12 @@ namespace PEINFv1
 
         private void PointISS_Click(object sender, EventArgs e)
         {
-           // MakePopup("Ich Titel", "Ich text", pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
+           MakePopup("ISS", "Ich text", 622, 165);
         }
 
         private void PointMoon_Click(object sender, EventArgs e)
         {
-           // MakePopup("Ich Titel", "Ich text", pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
+           MakePopup("Mond", "Ich text", 644, 91);
         }
 
         #endregion
@@ -337,6 +333,11 @@ namespace PEINFv1
             X += 10;
             Y -= 70;
 
+            if (X + 328 > this.Width)
+            {
+                X -= 365;
+            }
+
             PopupText.Text = text;
             PopupTitle.Text = title;
 
@@ -347,6 +348,7 @@ namespace PEINFv1
             PopupText.Visible = true;
             PopupTitle.Visible = true;
             PopupBackground.Visible = true;
+
         }
 
         private void ClosePopup()
@@ -355,10 +357,8 @@ namespace PEINFv1
             PopupTitle.Visible = false;
             PopupText.Visible = false;
         }
-
-
+        
         #endregion
-
 
     }
 }
