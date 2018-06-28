@@ -254,6 +254,7 @@
             // 
             this.PopupCloseButton.BackColor = System.Drawing.SystemColors.ControlLight;
             this.PopupCloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PopupCloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.PopupCloseButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.PopupCloseButton.FlatAppearance.BorderSize = 2;
             this.PopupCloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
@@ -296,7 +297,7 @@
             this.Controls.Add(this.Point01);
             this.Controls.Add(this.TempTextbox);
             this.Controls.Add(this.BackgroundPB);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PEINF";
             this.Text = "PEINF";

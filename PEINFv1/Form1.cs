@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 
 //
-//  PEINFv1
+//
 //
 //  von Tim Nikita und Köbi
 
@@ -94,7 +94,7 @@ namespace PEINFv1
 
         private void checkCursorPosition_Tick(object sender, EventArgs e)
         {
-            if (Cursor.Position.X - Location.X > 633 && ClientRectangle.Contains(PointToClient(Control.MousePosition)) && PopupBackground.Visible == false)
+            if (Cursor.Position.X - Location.X > this.Width - 50 && ClientRectangle.Contains(PointToClient(Control.MousePosition)) && PopupBackground.Visible == false)
             {
                 TurnEarth(false);
             }

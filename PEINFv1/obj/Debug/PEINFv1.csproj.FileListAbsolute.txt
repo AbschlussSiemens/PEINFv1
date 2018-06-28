@@ -9,3 +9,5 @@ P:\Projekte\PEINFv1\PEINFv1\bin\Debug\PEINFv1.pdb
 P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.exe
 P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.pdb
 P:\Projekte\PEINFv1\PEINFv1\obj\Debug\PEINFv1.PEINF.resources
+P:\Projekte\PEINFv1\PEINFv1\bin\Debug\InfosPoint.mdf
+P:\Projekte\PEINFv1\PEINFv1\bin\Debug\InfosPoint_log.ldf
