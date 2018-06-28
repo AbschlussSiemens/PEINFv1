@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 
 //
@@ -52,10 +53,10 @@ namespace PEINFv1
         public PEINF()
         {
             InitializeComponent();
+            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
 
             Moon.Controls.Add(PointMoon);
-
-
+            
             BackgroundPB.Controls.Add(Point00);
             BackgroundPB.Controls.Add(Point01);
             BackgroundPB.Controls.Add(Point02);
@@ -63,13 +64,17 @@ namespace PEINFv1
             BackgroundPB.Controls.Add(Point04);
             BackgroundPB.Controls.Add(Point05);
             BackgroundPB.Controls.Add(Point06);
-
-
-
+            
             //Point Moon
             PointMoon.Location = new Point(23, 5);
             PointMoon.BackColor = Color.Transparent;
 
+        }
+
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            Timeout.Start();
+            Turn.Stop();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -88,7 +93,9 @@ namespace PEINFv1
             FillArray();
 
             TurnEarth(true);
+
             checkCursorPosition.Start();
+            Timeout.Start();
 
         }
 
@@ -117,67 +124,103 @@ namespace PEINFv1
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    TurnEarth(false);
-                    break;
-
-                case Keys.Right:
                     TurnEarth(true);
                     break;
 
+                case Keys.Right:
+                    TurnEarth(false);
+                    break;
+
                 case Keys.Enter:
+                    ClosePopup();
+                    break;
                 case Keys.Escape:
                     ClosePopup();
+
+                    if (FormBorderStyle.ToString() == "None")
+                    {
+                        FormBorderStyle = FormBorderStyle.Sizable;
+                        WindowState = FormWindowState.Normal;
+                    }
+                    break;
+
+                case Keys.F11:
+                    changeFullscreen();
                     break;
 
             }
         }
 
+        private void PEINF_SizeChanged(object sender, EventArgs e)
+        {
+            ClosePopup();
+        }
+
+
+
         #region PointXX_Klick
 
         private void Point00_Click(object sender, MouseEventArgs e)
         {
-            MakePopup("Dubai", "Ich text", 0);
+            string[] DataArray = getData(0);
+
+            MakePopup(DataArray[0], DataArray[1], 0);
         }
 
         private void Point01_Click(object sender, EventArgs e)
         {
-            MakePopup("Normandie", "Ich text", 1);
+            string[] DataArray = getData(1);
+
+            MakePopup(DataArray[0], DataArray[1], 1);
         }
 
         private void Point02_Click(object sender, EventArgs e)
         {
-            MakePopup("Toronto", "Ich text", 2);
+            string[] DataArray = getData(2);
+
+            MakePopup(DataArray[0], DataArray[1], 2);
         }
 
         private void Point03_Click(object sender, EventArgs e)
         {
-            MakePopup("Large Binocular Telescope", "Ich text", 3);
+            string[] DataArray = getData(3);
+
+            MakePopup(DataArray[0], DataArray[1], 3);
         }
 
         private void Point04_Click(object sender, EventArgs e)
         {
-            MakePopup("Giza", "Text", 4);
+            string[] DataArray = getData(4);
+
+            MakePopup(DataArray[0], DataArray[1], 4);
         }
 
         private void Point05_Click(object sender, EventArgs e)
         {
-            MakePopup("Berkut", "Text", 5);
+            string[] DataArray = getData(5);
+
+            MakePopup(DataArray[0], DataArray[1], 5);
         }
 
         private void Point06_Click(object sender, EventArgs e)
         {
-            MakePopup("Capre Reinga", "Text", 6);
-            //https://goo.gl/maps/Zwp2sE3rKzn
+            string[] DataArray = getData(6);
+
+            MakePopup(DataArray[0], DataArray[1], 6);
         }
 
         private void PointISS_Click(object sender, EventArgs e)
         {
-            MakePopup("ISS", "Ich text", 622, 165);
+            string[] DataArray = getData(7);
+
+            MakePopup(DataArray[0], DataArray[1], 622, 165);
         }
 
         private void PointMoon_Click(object sender, EventArgs e)
         {
-            MakePopup("Mond", "Ich text", 644, 91);
+            string[] DataArray = getData(8);
+
+            MakePopup(DataArray[0], DataArray[1], 644, 91);
         }
 
         #endregion
@@ -213,7 +256,6 @@ namespace PEINFv1
 
             //Changes Background from Form and Picturebox
             BackgroundPB.Image = frames[currentFrame];
-            this.BackgroundImage = frames[currentFrame];
 
             reLocate(Point00, pointLocation[0, currentFrame, 0], pointLocation[0, currentFrame, 1]);
             reLocate(Point01, pointLocation[1, currentFrame, 0], pointLocation[1, currentFrame, 1]);
@@ -271,7 +313,7 @@ namespace PEINFv1
                 Point03.Visible = true;
             }
         }
-           
+
         private void MakePopup(string title, string text, int PointNr, int Y = 0)
         {
             int X;
@@ -289,15 +331,13 @@ namespace PEINFv1
             X += 10;
             Y -= 70;
 
-            if (X + 333 > this.Width)
-            {
-                X -= 365;
-            }
-            if (Y + 427 > this.Height)
-            {
-                Y = 160;
-            }
-            
+            X += BackgroundPB.Location.X;
+            Y += BackgroundPB.Location.Y;
+
+            int[] XYint = AdjustPopup(X,Y);
+
+            X = XYint[0];
+            Y = XYint[1];
 
             PopupText.Text = text;
             PopupTitle.Text = title;
@@ -307,14 +347,29 @@ namespace PEINFv1
             PopupBackground.Location = new Point(X, Y);
             PopupTitle.Location = new Point(X + 10, Y + 10);
             PopupText.Location = new Point(X + 15, Y + 40);
-            PopupCloseButton.Location = new Point(294,10);
+            PopupCloseButton.Location = new Point(294, 10);
 
 
-            PopupCloseButton.Visible = true;
             PopupText.Visible = true;
             PopupTitle.Visible = true;
             PopupBackground.Visible = true;
+            PopupCloseButton.Visible = true;
 
+        }
+
+        int[] AdjustPopup(int X, int Y)
+        {
+            if (X + 333 > this.Width)
+            {
+                X -= 365;
+            }
+            if (Y + 427 > this.Height)
+            {
+                Y = 160;
+            }
+            
+            int[] returnInt = new int[2] { X, Y };
+            return returnInt;
         }
 
         private void ClosePopup()
@@ -463,7 +518,51 @@ namespace PEINFv1
 
         }
 
+        string[] getData(int Id)
+        {
+            string[] returnValue = new string[2];
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf; Integrated Security = True";
+            con.Open();
+
+            SqlCommand command = new SqlCommand("SELECT * FROM Infos WHERE Id =" + Id, con);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                returnValue[0] = reader["Titel"].ToString();
+                returnValue[1] = reader["Text"].ToString();
+            }
+            return returnValue;
+        }
+
+        private void changeFullscreen()
+        {
+            if (FormBorderStyle.ToString() == "Sizable")
+            {
+                FormBorderStyle = FormBorderStyle.None;
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Normal;
+            }
+        }
+
         #endregion
 
+        private void Timeout_Tick(object sender, EventArgs e)
+        {
+            Turn.Start();
+            Timeout.Stop();
+        }
+
+        private void Turn_Tick(object sender, EventArgs e)
+        {
+            TurnEarth(true);
+        }
     }
 }
