@@ -9,10 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-
-//
-//
-//
 //  von Tim Nikita und Köbi
 
 namespace PEINFv1
@@ -137,7 +133,7 @@ namespace PEINFv1
                     break;
 
                 case Keys.Escape:
-                    if (FormBorderStyle == FormBorderStyle.None)
+                    if (FormBorderStyle == FormBorderStyle.None && PopupBackground.Visible == false)
                     {
                         FormBorderStyle = FormBorderStyle.Sizable;
                         WindowState = FormWindowState.Normal;
@@ -348,7 +344,7 @@ namespace PEINFv1
                 }
 
                 //Point05
-                if (pointLocation[5, currentFrame, 0] == 0)
+                /*if (pointLocation[5, currentFrame, 0] == 0)
                 {
                     Point05.Visible = false;
                 }
@@ -365,11 +361,11 @@ namespace PEINFv1
                 else
                 {
                     Point06.Visible = true;
-                }
+                }*/
 
 
                 PointISS.Visible = true;
-                PointMoon.Visible = true;
+                //PointMoon.Visible = true;
             }
         }
 

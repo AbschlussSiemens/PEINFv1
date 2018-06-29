@@ -115,6 +115,7 @@
             this.PointMoon.Size = new System.Drawing.Size(15, 30);
             this.PointMoon.TabIndex = 4;
             this.PointMoon.TabStop = false;
+            this.PointMoon.Visible = false;
             this.PointMoon.Click += new System.EventHandler(this.PointMoon_Click);
             // 
             // Point01
@@ -224,6 +225,7 @@
             this.Point06.Size = new System.Drawing.Size(15, 30);
             this.Point06.TabIndex = 14;
             this.Point06.TabStop = false;
+            this.Point06.Visible = false;
             this.Point06.Click += new System.EventHandler(this.Point06_Click);
             // 
             // Point05
@@ -236,6 +238,7 @@
             this.Point05.Size = new System.Drawing.Size(15, 30);
             this.Point05.TabIndex = 15;
             this.Point05.TabStop = false;
+            this.Point05.Visible = false;
             this.Point05.Click += new System.EventHandler(this.Point05_Click);
             // 
             // Point04
