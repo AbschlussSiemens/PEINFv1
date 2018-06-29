@@ -15,21 +15,6 @@ using System.Data.SqlClient;
 //
 //  von Tim Nikita und Köbi
 
-
-#region TODO
-
-//////////////////// 
-//      TODO      //
-////////////////////
-
-//Text und Titel für Stationen
-
-//Datenbank für Text und Titel
-
-#endregion
-
-
-
 namespace PEINFv1
 {
     public partial class PEINF : Form
@@ -133,7 +118,8 @@ namespace PEINFv1
             ClosePopup();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e) 
+
         {
            
             switch (e.KeyCode)
@@ -596,7 +582,7 @@ namespace PEINFv1
             string[] returnValue = new string[2];
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf; Integrated Security = True";
+            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf; Integrated Security = True";//P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf
             con.Open();
 
             SqlCommand command = new SqlCommand("SELECT * FROM Infos WHERE Id =" + Id, con);

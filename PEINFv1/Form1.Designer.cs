@@ -39,7 +39,6 @@
             this.Moon = new System.Windows.Forms.PictureBox();
             this.PopupBackground = new System.Windows.Forms.PictureBox();
             this.PopupTitle = new System.Windows.Forms.Label();
-            this.PopupText = new System.Windows.Forms.Label();
             this.Point02 = new System.Windows.Forms.PictureBox();
             this.Point03 = new System.Windows.Forms.PictureBox();
             this.ISS = new System.Windows.Forms.PictureBox();
@@ -50,6 +49,7 @@
             this.PopupCloseButton = new System.Windows.Forms.Button();
             this.Timeout = new System.Windows.Forms.Timer(this.components);
             this.Turn = new System.Windows.Forms.Timer(this.components);
+            this.PopupText = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Point00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BackgroundPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointMoon)).BeginInit();
@@ -165,19 +165,6 @@
             this.PopupTitle.Text = "Titel";
             this.PopupTitle.Visible = false;
             // 
-            // PopupText
-            // 
-            this.PopupText.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PopupText.AutoSize = true;
-            this.PopupText.BackColor = System.Drawing.Color.White;
-            this.PopupText.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PopupText.Location = new System.Drawing.Point(169, 159);
-            this.PopupText.Name = "PopupText";
-            this.PopupText.Size = new System.Drawing.Size(28, 15);
-            this.PopupText.TabIndex = 9;
-            this.PopupText.Text = "Text";
-            this.PopupText.Visible = false;
-            // 
             // Point02
             // 
             this.Point02.BackColor = System.Drawing.Color.Transparent;
@@ -286,13 +273,26 @@
             // 
             // Timeout
             // 
-            this.Timeout.Interval = 5000;
+            this.Timeout.Interval = 60000;
             this.Timeout.Tick += new System.EventHandler(this.Timeout_Tick);
             // 
             // Turn
             // 
             this.Turn.Interval = 1500;
             this.Turn.Tick += new System.EventHandler(this.Turn_Tick);
+            // 
+            // PopupText
+            // 
+            this.PopupText.BackColor = System.Drawing.Color.White;
+            this.PopupText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PopupText.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.PopupText.Enabled = false;
+            this.PopupText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopupText.Location = new System.Drawing.Point(165, 151);
+            this.PopupText.Name = "PopupText";
+            this.PopupText.Size = new System.Drawing.Size(293, 370);
+            this.PopupText.TabIndex = 18;
+            this.PopupText.Text = "";
             // 
             // PEINF
             // 
@@ -303,11 +303,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.CancelButton = this.PopupCloseButton;
             this.ClientSize = new System.Drawing.Size(808, 661);
+            this.Controls.Add(this.PopupText);
             this.Controls.Add(this.PopupCloseButton);
             this.Controls.Add(this.Point04);
             this.Controls.Add(this.Point05);
             this.Controls.Add(this.Point06);
-            this.Controls.Add(this.PopupText);
             this.Controls.Add(this.PopupTitle);
             this.Controls.Add(this.PopupBackground);
             this.Controls.Add(this.PointISS);
@@ -356,7 +356,6 @@
         private System.Windows.Forms.PictureBox Moon;
         private System.Windows.Forms.PictureBox PopupBackground;
         private System.Windows.Forms.Label PopupTitle;
-        private System.Windows.Forms.Label PopupText;
         private System.Windows.Forms.PictureBox Point02;
         private System.Windows.Forms.PictureBox Point03;
         private System.Windows.Forms.PictureBox ISS;
@@ -367,6 +366,7 @@
         private System.Windows.Forms.Button PopupCloseButton;
         private System.Windows.Forms.Timer Timeout;
         private System.Windows.Forms.Timer Turn;
+        private System.Windows.Forms.RichTextBox PopupText;
     }
 }
 
