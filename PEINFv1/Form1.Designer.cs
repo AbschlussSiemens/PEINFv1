@@ -327,6 +327,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.PEINF_SizeChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PEINF_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.Point00)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BackgroundPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointMoon)).EndInit();

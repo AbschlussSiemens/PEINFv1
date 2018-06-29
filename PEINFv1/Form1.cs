@@ -73,8 +73,23 @@ namespace PEINFv1
 
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
+            Timeout.Stop();
             Timeout.Start();
             Turn.Stop();
+            Cursor.Show();
+
+            Visibility();
+        }
+
+
+        private void PEINF_MouseDown(object sender, MouseEventArgs e)
+        {
+            Timeout.Start();
+            Turn.Stop();
+            Turn.Stop();
+            Cursor.Show();
+
+            Visibility();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -156,6 +171,28 @@ namespace PEINFv1
             ClosePopup();
         }
 
+        private void Timeout_Tick(object sender, EventArgs e)
+        {
+            Point00.Visible = false;
+            Point01.Visible = false;
+            Point02.Visible = false;
+            Point03.Visible = false;
+            Point04.Visible = false;
+            Point05.Visible = false;
+            Point06.Visible = false;
+            PointISS.Visible = false;
+            PointMoon.Visible = false;
+
+
+            Turn.Start();
+            Timeout.Stop();
+        }
+
+        private void Turn_Tick(object sender, EventArgs e)
+        {
+            TurnEarth(true);
+            Cursor.Hide();
+        }
 
 
         #region PointXX_Klick
@@ -273,44 +310,81 @@ namespace PEINFv1
 
         private void Visibility()
         {
-            //Point00
-            if (pointLocation[0, currentFrame, 0] == 0)
+            if (Turn.Enabled == false)
             {
-                Point00.Visible = false;
-            }
-            else
-            {
-                Point00.Visible = true;
-            }
+                //Point00
+                if (pointLocation[0, currentFrame, 0] == 0)
+                {
+                    Point00.Visible = false;
+                }
+                else
+                {
+                    Point00.Visible = true;
+                }
 
-            //Point01
-            if (pointLocation[1, currentFrame, 0] == 0)
-            {
-                Point01.Visible = false;
-            }
-            else
-            {
-                Point01.Visible = true;
-            }
+                //Point01
+                if (pointLocation[1, currentFrame, 0] == 0)
+                {
+                    Point01.Visible = false;
+                }
+                else
+                {
+                    Point01.Visible = true;
+                }
 
-            //Point02
-            if (pointLocation[2, currentFrame, 0] == 0)
-            {
-                Point02.Visible = false;
-            }
-            else
-            {
-                Point02.Visible = true;
-            }
+                //Point02
+                if (pointLocation[2, currentFrame, 0] == 0)
+                {
+                    Point02.Visible = false;
+                }
+                else
+                {
+                    Point02.Visible = true;
+                }
 
-            //Point03
-            if (pointLocation[3, currentFrame, 0] == 0)
-            {
-                Point03.Visible = false;
-            }
-            else
-            {
-                Point03.Visible = true;
+                //Point03
+                if (pointLocation[3, currentFrame, 0] == 0)
+                {
+                    Point03.Visible = false;
+                }
+                else
+                {
+                    Point03.Visible = true;
+                }
+
+                //Point04
+                if (pointLocation[4, currentFrame, 0] == 0)
+                {
+                    Point04.Visible = false;
+                }
+                else
+                {
+                    Point04.Visible = true;
+                }
+
+                //Point05
+                if (pointLocation[5, currentFrame, 0] == 0)
+                {
+                    Point05.Visible = false;
+                }
+                else
+                {
+                    Point05.Visible = true;
+                }
+
+                //Point06
+                if (pointLocation[6, currentFrame, 0] == 0)
+                {
+                    Point06.Visible = false;
+                }
+                else
+                {
+                    Point06.Visible = true;
+                }
+
+
+                PointISS.Visible = true;
+                PointMoon.Visible = true;
             }
         }
 
@@ -554,15 +628,6 @@ namespace PEINFv1
 
         #endregion
 
-        private void Timeout_Tick(object sender, EventArgs e)
-        {
-            Turn.Start();
-            Timeout.Stop();
-        }
 
-        private void Turn_Tick(object sender, EventArgs e)
-        {
-            TurnEarth(true);
-        }
     }
 }
