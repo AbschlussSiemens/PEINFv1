@@ -72,14 +72,13 @@
             // 
             // TempTextbox
             // 
-            this.TempTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TempTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TempTextbox.Enabled = false;
             this.TempTextbox.Location = new System.Drawing.Point(-3, 642);
             this.TempTextbox.Name = "TempTextbox";
             this.TempTextbox.ReadOnly = true;
             this.TempTextbox.Size = new System.Drawing.Size(100, 20);
             this.TempTextbox.TabIndex = 1;
-            this.TempTextbox.Visible = false;
             // 
             // Point00
             // 
