@@ -80,8 +80,7 @@ namespace PEINFv1
 
             Visibility();
         }
-
-
+        
         private void PEINF_MouseDown(object sender, MouseEventArgs e)
         {
             Timeout.Start();
@@ -149,14 +148,15 @@ namespace PEINFv1
                 case Keys.Enter:
                     ClosePopup();
                     break;
-                case Keys.Escape:
-                    ClosePopup();
 
-                    if (FormBorderStyle.ToString() == "None")
+                case Keys.Escape:
+                    MessageBox.Show("Pressed");
+                    if (FormBorderStyle == FormBorderStyle.None)
                     {
                         FormBorderStyle = FormBorderStyle.Sizable;
                         WindowState = FormWindowState.Normal;
                     }
+                    ClosePopup();
                     break;
 
                 case Keys.F11:
@@ -182,7 +182,7 @@ namespace PEINFv1
             Point06.Visible = false;
             PointISS.Visible = false;
             PointMoon.Visible = false;
-
+            Cursor.Hide();
 
             Turn.Start();
             Timeout.Stop();
@@ -191,7 +191,6 @@ namespace PEINFv1
         private void Turn_Tick(object sender, EventArgs e)
         {
             TurnEarth(true);
-            Cursor.Hide();
         }
 
 
