@@ -135,6 +135,7 @@ namespace PEINFv1
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+           
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -150,7 +151,6 @@ namespace PEINFv1
                     break;
 
                 case Keys.Escape:
-                    MessageBox.Show("Pressed");
                     if (FormBorderStyle == FormBorderStyle.None)
                     {
                         FormBorderStyle = FormBorderStyle.Sizable;
