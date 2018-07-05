@@ -578,7 +578,7 @@ namespace PEINFv1
             string[] returnValue = new string[2];
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf; Integrated Security = True";//P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf
+            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";//P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf
             con.Open();
 
             SqlCommand command = new SqlCommand("SELECT * FROM Infos WHERE Id =" + Id, con);
@@ -608,7 +608,6 @@ namespace PEINFv1
         }
 
         #endregion
-
-
+        
     }
 }
