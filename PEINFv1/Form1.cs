@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-//  von Tim Nikita und Köbi
+//  von Tim Nikita und Jakob
 
 namespace PEINFv1
 {
@@ -45,10 +45,16 @@ namespace PEINFv1
             BackgroundPB.Controls.Add(Point04);
             BackgroundPB.Controls.Add(Point05);
             BackgroundPB.Controls.Add(Point06);
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";//P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf
+            con.Open();
             
             //Point Moon
+            /*
             PointMoon.Location = new Point(23, 5);
             PointMoon.BackColor = Color.Transparent;
+            */
 
         }
 
@@ -176,7 +182,7 @@ namespace PEINFv1
         }
 
 
-        #region PointXX_Klick
+#region PointXX_Klick
 
         private void Point00_Click(object sender, MouseEventArgs e)
         {
@@ -241,11 +247,11 @@ namespace PEINFv1
             MakePopup(DataArray[0], DataArray[1], 644, 91);
         }
 
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #region Methoden
+#region Methoden
 
         private void TurnEarth(bool turnRight)
         {
@@ -578,7 +584,7 @@ namespace PEINFv1
             string[] returnValue = new string[2];
 
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";//P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf
+            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";
             con.Open();
 
             SqlCommand command = new SqlCommand("SELECT * FROM Infos WHERE Id =" + Id, con);
@@ -607,7 +613,7 @@ namespace PEINFv1
             }
         }
 
-        #endregion
+#endregion
         
     }
 }
