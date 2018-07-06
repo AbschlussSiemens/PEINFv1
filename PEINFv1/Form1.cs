@@ -388,6 +388,7 @@ namespace PEINFv1
             Y -= 70;
 
             X += BackgroundPB.Location.X;
+
             Y += BackgroundPB.Location.Y;
 
             int[] XYint = AdjustPopup(X,Y);
@@ -430,7 +431,7 @@ namespace PEINFv1
             return returnInt;
         }
 
-        private void ClosePopup()
+        private void ClosePopup() 
         {
             PopupBackground.Visible = false;
             PopupTitle.Visible = false;
