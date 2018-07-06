@@ -63,7 +63,6 @@ namespace PEINFv1
             Timeout.Stop();
             Timeout.Start();
             Turn.Stop();
-            Cursor.Show();
 
             Visibility();
         }
@@ -73,7 +72,6 @@ namespace PEINFv1
             Timeout.Start();
             Turn.Stop();
             Turn.Stop();
-            Cursor.Show();
 
             Visibility();
         }
@@ -121,9 +119,7 @@ namespace PEINFv1
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e) 
-
         {
-           
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -170,7 +166,6 @@ namespace PEINFv1
             Point06.Visible = false;
             PointISS.Visible = false;
             PointMoon.Visible = false;
-            Cursor.Hide();
 
             Turn.Start();
             Timeout.Stop();
@@ -182,7 +177,7 @@ namespace PEINFv1
         }
 
 
-#region PointXX_Klick
+        #region PointXX_Klick
 
         private void Point00_Click(object sender, MouseEventArgs e)
         {
@@ -251,7 +246,7 @@ namespace PEINFv1
 
 #endregion
 
-#region Methoden
+        #region Methoden
 
         private void TurnEarth(bool turnRight)
         {
@@ -408,14 +403,16 @@ namespace PEINFv1
             PopupBackground.Location = new Point(X, Y);
             PopupTitle.Location = new Point(X + 10, Y + 10);
             PopupText.Location = new Point(X + 15, Y + 40);
-            PopupCloseButton.Location = new Point(294, 10);
-
+            PopupCloseButton.Location = new Point(350, 10);
+            PopupImage.Location = new Point(X + 184,Y + 334);
 
             PopupText.Visible = true;
             PopupTitle.Visible = true;
             PopupBackground.Visible = true;
             PopupCloseButton.Visible = true;
+            PopupImage.Visible = true;
 
+            Timeout.Stop();
         }
 
         int[] AdjustPopup(int X, int Y)
@@ -439,6 +436,9 @@ namespace PEINFv1
             PopupTitle.Visible = false;
             PopupText.Visible = false;
             PopupCloseButton.Visible = false;
+            PopupImage.Visible = false;
+
+            Timeout.Start();
         }
 
         private void FillArray()
@@ -613,7 +613,7 @@ namespace PEINFv1
             }
         }
 
-#endregion
+    #endregion
         
     }
-}
+} 

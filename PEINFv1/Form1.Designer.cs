@@ -50,6 +50,7 @@
             this.Timeout = new System.Windows.Forms.Timer(this.components);
             this.Turn = new System.Windows.Forms.Timer(this.components);
             this.PopupText = new System.Windows.Forms.RichTextBox();
+            this.PopupImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Point00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BackgroundPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PointMoon)).BeginInit();
@@ -63,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Point06)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point05)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point04)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PopupImage)).BeginInit();
             this.SuspendLayout();
             // 
             // checkCursorPosition
@@ -79,6 +81,7 @@
             this.TempTextbox.ReadOnly = true;
             this.TempTextbox.Size = new System.Drawing.Size(100, 20);
             this.TempTextbox.TabIndex = 1;
+            this.TempTextbox.Visible = false;
             // 
             // Point00
             // 
@@ -146,7 +149,7 @@
             this.PopupBackground.BackColor = System.Drawing.Color.White;
             this.PopupBackground.Location = new System.Drawing.Point(155, 102);
             this.PopupBackground.Name = "PopupBackground";
-            this.PopupBackground.Size = new System.Drawing.Size(328, 427);
+            this.PopupBackground.Size = new System.Drawing.Size(386, 483);
             this.PopupBackground.TabIndex = 7;
             this.PopupBackground.TabStop = false;
             this.PopupBackground.Visible = false;
@@ -263,7 +266,7 @@
             this.PopupCloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.PopupCloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.PopupCloseButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PopupCloseButton.Location = new System.Drawing.Point(448, 112);
+            this.PopupCloseButton.Location = new System.Drawing.Point(507, 111);
             this.PopupCloseButton.Name = "PopupCloseButton";
             this.PopupCloseButton.Size = new System.Drawing.Size(24, 23);
             this.PopupCloseButton.TabIndex = 17;
@@ -275,7 +278,7 @@
             // 
             // Timeout
             // 
-            this.Timeout.Interval = 60000;
+            this.Timeout.Interval = 5000;
             this.Timeout.Tick += new System.EventHandler(this.Timeout_Tick);
             // 
             // Turn
@@ -292,9 +295,19 @@
             this.PopupText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PopupText.Location = new System.Drawing.Point(165, 151);
             this.PopupText.Name = "PopupText";
-            this.PopupText.Size = new System.Drawing.Size(293, 370);
+            this.PopupText.Size = new System.Drawing.Size(366, 279);
             this.PopupText.TabIndex = 18;
-            this.PopupText.Text = "";
+            this.PopupText.Text = " ";
+            // 
+            // PopupImage
+            // 
+            this.PopupImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PopupImage.BackgroundImage")));
+            this.PopupImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PopupImage.Location = new System.Drawing.Point(344, 447);
+            this.PopupImage.Name = "PopupImage";
+            this.PopupImage.Size = new System.Drawing.Size(187, 126);
+            this.PopupImage.TabIndex = 19;
+            this.PopupImage.TabStop = false;
             // 
             // PEINF
             // 
@@ -305,6 +318,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.CancelButton = this.PopupCloseButton;
             this.ClientSize = new System.Drawing.Size(808, 661);
+            this.Controls.Add(this.PopupImage);
             this.Controls.Add(this.PopupText);
             this.Controls.Add(this.PopupCloseButton);
             this.Controls.Add(this.Point04);
@@ -343,6 +357,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Point06)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point05)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Point04)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PopupImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,6 +384,7 @@
         private System.Windows.Forms.Timer Timeout;
         private System.Windows.Forms.Timer Turn;
         private System.Windows.Forms.RichTextBox PopupText;
+        private System.Windows.Forms.PictureBox PopupImage;
     }
 }
 
