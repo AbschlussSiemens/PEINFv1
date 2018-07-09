@@ -46,12 +46,15 @@ namespace PEINFv1
             BackgroundPB.Controls.Add(Point05);
             BackgroundPB.Controls.Add(Point06);
 
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";//P:\\Projekte\\PEINFv1\\PEINFv1\\InfosPoint.mdf
-            con.Open();
             
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";
+            con.Open();
+
+            con.Close();
+
             //Point Moon
-            /*
+            /* 
             PointMoon.Location = new Point(23, 5);
             PointMoon.BackColor = Color.Transparent;
             */
@@ -244,7 +247,7 @@ namespace PEINFv1
 
 #endregion
 
-#endregion
+        #endregion
 
         #region Methoden
 
@@ -597,6 +600,9 @@ namespace PEINFv1
                 returnValue[0] = reader["Titel"].ToString();
                 returnValue[1] = reader["Text"].ToString();
             }
+
+            con.Close();
+
             return returnValue;
         }
 
