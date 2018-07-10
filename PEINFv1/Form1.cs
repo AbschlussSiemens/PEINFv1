@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-//  von Tim Nikita und Jakob
+//  von Tim, Nikita und Jakob
 
 namespace PEINFv1
 {
@@ -22,6 +22,7 @@ namespace PEINFv1
 
         Bitmap Pointer = new Bitmap("..\\..\\Assets\\Sonnst\\Point.png");
         Bitmap[] frames = new Bitmap[25];
+        Bitmap[] proof = new Bitmap[9];
 
 
         //pointLocation[Nummer des Pointer, Frame, X = 0 oder Y = 1]
@@ -46,12 +47,19 @@ namespace PEINFv1
             BackgroundPB.Controls.Add(Point05);
             BackgroundPB.Controls.Add(Point06);
 
-            
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";
-            con.Open();
+            try
+            {
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";
+                con.Open();
 
-            con.Close();
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Konnte keine Verbindung zum SQL Server eingehen");
+                this.Close();
+            }
 
             //Point Moon
             /* 
@@ -61,32 +69,32 @@ namespace PEINFv1
 
         }
 
-        void MainWindow_KeyDown(object sender, KeyEventArgs e)
-        {
-            Timeout.Stop();
-            Timeout.Start();
-            Turn.Stop();
-
-            Visibility();
-        }
-        
-        private void PEINF_MouseDown(object sender, MouseEventArgs e)
-        {
-            Timeout.Start();
-            Turn.Stop();
-            Turn.Stop();
-
-            Visibility();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 1; i <= 24; i++)
             {
-                frames[i] = new Bitmap("..\\..\\Assets\\Erde\\frame (" + i + ").bmp");
+                try
+                {
+                    frames[i] = new Bitmap("..\\..\\Assets\\Erde\\frame (" + i + ").bmp");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Dateien fehlen");
+                }
             }
-
-            this.BackgroundPB.Image = new Bitmap("..\\..\\Assets\\Sonnst\\Point.png");
+            
+            for (int i = 1; i <= 8; i++)
+            {
+                try
+                {
+                    proof[i] = new Bitmap("..\\..\\Assets\\Beweise\\Image (" + i + ").bmp");
+                }
+                catch (Exception)
+                {
+                    //MessageBox.Show("Dateien fehlen");
+                }
+            }
+            
 
 
             Random rnd = new Random();
@@ -101,15 +109,41 @@ namespace PEINFv1
 
         }
 
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            Timeout.Stop();
+            Timeout.Start();
+            Turn.Stop();
+
+            Visibility();
+        }
+        
+        private void PEINF_MouseDown(object sender, MouseEventArgs e)
+        {
+            Timeout.Stop();
+            Timeout.Start();
+            Turn.Stop();
+
+            Visibility();
+        }
+                
         private void checkCursorPosition_Tick(object sender, EventArgs e)
         {
             if (Cursor.Position.X - Location.X > this.Width - 50 && ClientRectangle.Contains(PointToClient(Control.MousePosition)) && PopupBackground.Visible == false)
             {
+                Timeout.Stop();
+                Timeout.Start();
+                Turn.Stop();
+
                 TurnEarth(false);
             }
 
             if (Cursor.Position.X - Location.X < 50 && ClientRectangle.Contains(PointToClient(Control.MousePosition)) && PopupBackground.Visible == false)
             {
+                Timeout.Stop();
+                Timeout.Start();
+                Turn.Stop();
+
                 TurnEarth(true);
             }
 
@@ -245,7 +279,7 @@ namespace PEINFv1
             MakePopup(DataArray[0], DataArray[1], 644, 91);
         }
 
-#endregion
+        #endregion
 
         #endregion
 
@@ -380,6 +414,7 @@ namespace PEINFv1
             if (Y != 0)
             {
                 X = PointNr;
+                PointNr = 7;
             }
             else
             {
@@ -401,6 +436,7 @@ namespace PEINFv1
 
             PopupText.Text = text;
             PopupTitle.Text = title;
+            PopupImage.BackgroundImage = proof[PointNr];
 
             PopupBackground.Controls.Add(PopupCloseButton);
 
@@ -408,7 +444,7 @@ namespace PEINFv1
             PopupTitle.Location = new Point(X + 10, Y + 10);
             PopupText.Location = new Point(X + 15, Y + 40);
             PopupCloseButton.Location = new Point(350, 10);
-            PopupImage.Location = new Point(X + 184,Y + 334);
+            PopupImage.Location = new Point(X + 40,Y + 334);
 
             PopupText.Visible = true;
             PopupTitle.Visible = true;
@@ -585,24 +621,30 @@ namespace PEINFv1
 
         string[] getData(int Id)
         {
-            string[] returnValue = new string[2];
-
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";
-            con.Open();
-
-            SqlCommand command = new SqlCommand("SELECT * FROM Infos WHERE Id =" + Id, con);
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
+            string[] returnValue = new string[2] {"" , ""};
+            try
             {
-                returnValue[0] = reader["Titel"].ToString();
-                returnValue[1] = reader["Text"].ToString();
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\InfosPoint.mdf; Integrated Security = True";
+                con.Open();
+
+                SqlCommand command = new SqlCommand("SELECT * FROM Infos WHERE Id =" + Id, con);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    returnValue[0] = reader["Titel"].ToString();
+                    returnValue[1] = reader["Text"].ToString();
+                }
+
+                con.Close();
             }
-
-            con.Close();
-
+            catch (Exception)
+            {
+                MessageBox.Show("Konnte keine Verbindung zum SQL Server eingehen");
+            }
+            
             return returnValue;
         }
 

@@ -149,7 +149,7 @@
             this.PopupBackground.BackColor = System.Drawing.Color.White;
             this.PopupBackground.Location = new System.Drawing.Point(155, 102);
             this.PopupBackground.Name = "PopupBackground";
-            this.PopupBackground.Size = new System.Drawing.Size(386, 483);
+            this.PopupBackground.Size = new System.Drawing.Size(386, 547);
             this.PopupBackground.TabIndex = 7;
             this.PopupBackground.TabStop = false;
             this.PopupBackground.Visible = false;
@@ -278,7 +278,7 @@
             // 
             // Timeout
             // 
-            this.Timeout.Interval = 5000;
+            this.Timeout.Interval = 60000;
             this.Timeout.Tick += new System.EventHandler(this.Timeout_Tick);
             // 
             // Turn
@@ -303,9 +303,9 @@
             // 
             this.PopupImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PopupImage.BackgroundImage")));
             this.PopupImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PopupImage.Location = new System.Drawing.Point(344, 447);
+            this.PopupImage.Location = new System.Drawing.Point(195, 447);
             this.PopupImage.Name = "PopupImage";
-            this.PopupImage.Size = new System.Drawing.Size(187, 126);
+            this.PopupImage.Size = new System.Drawing.Size(297, 182);
             this.PopupImage.TabIndex = 19;
             this.PopupImage.TabStop = false;
             // 
