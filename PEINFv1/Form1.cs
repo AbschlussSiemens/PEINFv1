@@ -83,7 +83,7 @@ namespace PEINFv1
                 }
             }
             
-            for (int i = 1; i <= 8; i++)
+            for (int i = 0; i <= 8; i++)
             {
                 try
                 {
@@ -91,7 +91,7 @@ namespace PEINFv1
                 }
                 catch (Exception)
                 {
-                    //MessageBox.Show("Dateien fehlen");
+                    MessageBox.Show("Datei mit der ID: "+ i+" fehlt.");
                 }
             }
             
@@ -147,7 +147,7 @@ namespace PEINFv1
                 TurnEarth(true);
             }
 
-            TempTextbox.Text = (Cursor.Position.X - this.Location.X).ToString() + "   " + (Cursor.Position.Y - this.Location.Y).ToString() + "   " + currentFrame.ToString();
+            //TempTextbox.Text = (Cursor.Position.X - this.Location.X).ToString() + "   " + (Cursor.Position.Y - this.Location.Y).ToString() + "   " + currentFrame.ToString();
         }
 
         private void PopupCloseButton_Click(object sender, EventArgs e)
@@ -423,7 +423,7 @@ namespace PEINFv1
             }
 
             X += 10;
-            Y -= 70;
+            Y -= 68;
 
             X += BackgroundPB.Location.X;
 
@@ -441,8 +441,8 @@ namespace PEINFv1
             PopupBackground.Controls.Add(PopupCloseButton);
 
             PopupBackground.Location = new Point(X, Y);
-            PopupTitle.Location = new Point(X + 10, Y + 10);
-            PopupText.Location = new Point(X + 15, Y + 40);
+            PopupTitle.Location = new Point(X + 12, Y + 14);
+            PopupText.Location = new Point(X + 16, Y + 44);
             PopupCloseButton.Location = new Point(350, 10);
             PopupImage.Location = new Point(X + 40,Y + 334);
 

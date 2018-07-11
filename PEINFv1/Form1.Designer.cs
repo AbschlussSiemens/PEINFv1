@@ -258,14 +258,16 @@
             // PopupCloseButton
             // 
             this.PopupCloseButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PopupCloseButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.PopupCloseButton.BackColor = System.Drawing.Color.Red;
             this.PopupCloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PopupCloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.PopupCloseButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.PopupCloseButton.FlatAppearance.BorderSize = 2;
             this.PopupCloseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.PopupCloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.PopupCloseButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PopupCloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PopupCloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PopupCloseButton.ForeColor = System.Drawing.SystemColors.Control;
             this.PopupCloseButton.Location = new System.Drawing.Point(507, 111);
             this.PopupCloseButton.Name = "PopupCloseButton";
             this.PopupCloseButton.Size = new System.Drawing.Size(24, 23);
@@ -291,10 +293,10 @@
             this.PopupText.BackColor = System.Drawing.Color.White;
             this.PopupText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PopupText.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.PopupText.Enabled = false;
             this.PopupText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PopupText.Location = new System.Drawing.Point(165, 151);
             this.PopupText.Name = "PopupText";
+            this.PopupText.ReadOnly = true;
             this.PopupText.Size = new System.Drawing.Size(366, 279);
             this.PopupText.TabIndex = 18;
             this.PopupText.Text = " ";
