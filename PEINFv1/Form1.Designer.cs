@@ -294,7 +294,7 @@
             this.PopupText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PopupText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.PopupText.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PopupText.Location = new System.Drawing.Point(165, 151);
+            this.PopupText.Location = new System.Drawing.Point(165, 162);
             this.PopupText.Name = "PopupText";
             this.PopupText.ReadOnly = true;
             this.PopupText.Size = new System.Drawing.Size(366, 279);

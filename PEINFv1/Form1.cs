@@ -38,7 +38,7 @@ namespace PEINFv1
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
 
             Moon.Controls.Add(PointMoon);
-            
+
             BackgroundPB.Controls.Add(Point00);
             BackgroundPB.Controls.Add(Point01);
             BackgroundPB.Controls.Add(Point02);
@@ -66,7 +66,7 @@ namespace PEINFv1
             PointMoon.Location = new Point(23, 5);
             PointMoon.BackColor = Color.Transparent;
             */
-
+                        
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -79,22 +79,26 @@ namespace PEINFv1
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Dateien fehlen");
+                    MessageBox.Show("Erde Frame mit der ID: " + i + " fehlt.");
                 }
             }
-            
+
             for (int i = 0; i <= 8; i++)
             {
-                try
+                if (i != 5 && i != 6 && i != 8)
                 {
-                    proof[i] = new Bitmap("..\\..\\Assets\\Beweise\\Image (" + i + ").bmp");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Datei mit der ID: "+ i+" fehlt.");
+                    try
+                    {
+                        proof[i] = new Bitmap("..\\..\\Assets\\Beweise\\Image (" + i + ").bmp");
+                    }
+                    catch (Exception)
+                    {
+
+                        MessageBox.Show("Beweis Datei mit der ID: " + i + " fehlt.");
+                    }
                 }
             }
-            
+
 
 
             Random rnd = new Random();
@@ -117,7 +121,7 @@ namespace PEINFv1
 
             Visibility();
         }
-        
+
         private void PEINF_MouseDown(object sender, MouseEventArgs e)
         {
             Timeout.Stop();
@@ -126,7 +130,7 @@ namespace PEINFv1
 
             Visibility();
         }
-                
+
         private void checkCursorPosition_Tick(object sender, EventArgs e)
         {
             if (Cursor.Position.X - Location.X > this.Width - 50 && ClientRectangle.Contains(PointToClient(Control.MousePosition)) && PopupBackground.Visible == false)
@@ -155,7 +159,7 @@ namespace PEINFv1
             ClosePopup();
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e) 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -421,7 +425,7 @@ namespace PEINFv1
                 X = pointLocation[PointNr, currentFrame, 0];
                 Y = pointLocation[PointNr, currentFrame, 1];
             }
-
+            
             X += 10;
             Y -= 68;
 
@@ -429,28 +433,34 @@ namespace PEINFv1
 
             Y += BackgroundPB.Location.Y;
 
-            int[] XYint = AdjustPopup(X,Y);
+            int[] XYint = AdjustPopup(X, Y);
 
             X = XYint[0];
             Y = XYint[1];
 
-            PopupText.Text = text;
+            PopupText.Text = StringTransformation(text);
             PopupTitle.Text = title;
             PopupImage.BackgroundImage = proof[PointNr];
 
-            PopupBackground.Controls.Add(PopupCloseButton);
+            using (Graphics g = CreateGraphics())
+            {
+                PopupText.Height = (int)g.MeasureString(PopupText.Text, PopupText.Font, PopupText.Width).Height;
+            }
+                 
 
             PopupBackground.Location = new Point(X, Y);
             PopupTitle.Location = new Point(X + 12, Y + 14);
             PopupText.Location = new Point(X + 16, Y + 44);
-            PopupCloseButton.Location = new Point(350, 10);
-            PopupImage.Location = new Point(X + 40,Y + 334);
+            PopupCloseButton.Location = new Point(X + 352, Y + 9); //350
+            PopupImage.Location = new Point(X + 40, Y + 54 + PopupText.Height);
+
+            PopupBackground.Height = 268 + PopupText.Height;
 
             PopupText.Visible = true;
             PopupTitle.Visible = true;
-            PopupBackground.Visible = true;
-            PopupCloseButton.Visible = true;
             PopupImage.Visible = true;
+            PopupCloseButton.Visible = true;
+            PopupBackground.Visible = true;
 
             Timeout.Stop();
         }
@@ -465,12 +475,12 @@ namespace PEINFv1
             {
                 Y = 160;
             }
-            
+
             int[] returnInt = new int[2] { X, Y };
             return returnInt;
         }
 
-        private void ClosePopup() 
+        private void ClosePopup()
         {
             PopupBackground.Visible = false;
             PopupTitle.Visible = false;
@@ -621,7 +631,7 @@ namespace PEINFv1
 
         string[] getData(int Id)
         {
-            string[] returnValue = new string[2] {"" , ""};
+            string[] returnValue = new string[2] { "", "" };
             try
             {
                 SqlConnection con = new SqlConnection();
@@ -644,7 +654,7 @@ namespace PEINFv1
             {
                 MessageBox.Show("Konnte keine Verbindung zum SQL Server eingehen");
             }
-            
+
             return returnValue;
         }
 
@@ -662,7 +672,32 @@ namespace PEINFv1
             }
         }
 
-    #endregion
-        
+        private string StringTransformation(string input)
+        {
+            char[] charInput = input.ToCharArray();
+
+            int spaceIndex = 0;
+            int savei2;
+            int counter = 0;
+
+            do
+            {
+                savei2 = 52;
+                for (int i2 = 52; charInput[spaceIndex + i2 - 1 * counter] != ' ' ; i2--)
+                {
+                    savei2--;
+                }
+                spaceIndex += savei2 ;
+
+                input = input.Insert(spaceIndex + 1, "\n");
+
+                counter++;
+            } while (input.Length - 53 > spaceIndex);
+
+            return input;
+        }
+
+        #endregion
+
     }
-} 
+}
